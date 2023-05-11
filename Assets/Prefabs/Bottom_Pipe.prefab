@@ -10,11 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 247975492549313270, guid: 5caef94e5f49bbf4794db9e3fb73821e, type: 3}
       propertyPath: m_Name
-      value: Pipe Variant
+      value: Bottom_Pipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 247975492549313270, guid: 5caef94e5f49bbf4794db9e3fb73821e, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2388111715436304008, guid: 5caef94e5f49bbf4794db9e3fb73821e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2388111715436304008, guid: 5caef94e5f49bbf4794db9e3fb73821e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2388111715436304008, guid: 5caef94e5f49bbf4794db9e3fb73821e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0486095
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2388111715436304008, guid: 5caef94e5f49bbf4794db9e3fb73821e, type: 3}
       propertyPath: m_LocalRotation.w

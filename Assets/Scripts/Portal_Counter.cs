@@ -10,7 +10,7 @@ public class Portal_Counter : MonoBehaviour
     {
         //Send the score up event
         if (other.tag.Equals("Player")) {
-            EventsManager.Instance.callScoreUpEvent();
+            GameManager.Instance.increaseScore();
         }
     }
 }

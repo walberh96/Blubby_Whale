@@ -6,6 +6,11 @@ public class DeathZone : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        EventsManager.Instance.callDeathEvent();
+        //YOU DIED
+        if (other.gameObject.tag == "Player") {
+            GameManager.Instance.GameOver();
+
+        }
+            
     }
 }

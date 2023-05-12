@@ -1,7 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using UnityEngine.VFX;
+using UnityEngine.UI;
+using TMPro;
+using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +14,10 @@ public class GameManager : MonoBehaviour
 
     public enum GameState { Paused,Playing, onMainMenu, onDeathMenu}
     public int score { get; set; }
-    public GameState state { get; set; } = GameState.Playing;
+    private GameState state { get; set; }
+    public GameObject InGameUI;
+    public GameObject PauseMenu;
+
     public void Awake()
     {
         Instance = this;   
@@ -17,56 +25,28 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         score = 0;
+        state = GameState.Playing;
+        
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (Input.GetButtonDown("Cancel")) {
+            Debug.Log(state);
             if (state == GameState.Paused)
             {
-                UpdateGameState(GameState.Playing);
+                ResumeGame();
             }
             else if (state == GameState.Playing)
             {
-                UpdateGameState(GameState.Paused);
+                PauseGame();
             }
         }
     }
 
-    public void UpdateGameState(GameState state)
-    {
-        switch (state)
-        {
-            case GameState.Paused:
-                {
-                    //Pause the Game  
-                    PauseGame();
-                    break;
-                }
-            case GameState.Playing:
-                {
-                    //Resume the Game
-                    ResumeGame();
-                    break;
-                }
-            case GameState.onMainMenu:
-                {
-                    //Show Main Menu
-                    break;
-                }
-            case GameState.onDeathMenu:
-                {
-                    //Show Death Menu    
-                    break;
-                }
-
-        }
-    }
-
-    public void SetScore(int score)
+    public void SetScore()
     {
         if (PlayerPrefs.HasKey("HighScore"))
         {
@@ -74,29 +54,55 @@ public class GameManager : MonoBehaviour
             {
                 //YOU MADE A HIGH SCORE
                 PlayerPrefs.SetInt("HighScore", score);
-                EventsManager.Instance.callHighScoreEvent();
+                //Show HIGHSCORE, Hide Pause
+                PauseMenu.gameObject.GetComponent<Pause_Menu>().ShowHighScoreMenu();
+            }
+            else {
+                PauseMenu.gameObject.GetComponent<Pause_Menu>().ShowDeathMenu();
             }
         }
+
         else
         {
             PlayerPrefs.SetInt("HighScore", score);
+            //Activate Score ,hide pause
+            PauseMenu.gameObject.GetComponent<Pause_Menu>().ShowHighScoreMenu();
         }
     }
 
     public void increaseScore() {
         score++;
+        InGameUI.gameObject.GetComponent<Score_UI>().UpdateScore();
     }
 
     public void PauseGame() { 
         Time.timeScale = 0;
         state = GameState.Paused;
-        EventsManager.Instance.callGamePausedEvent();
+        PauseMenu.SetActive(true);
+        PauseMenu.gameObject.GetComponent<Pause_Menu>().ShowPauseMenu();
+        
+        
     }
     public void ResumeGame()
     {
         Time.timeScale = 1;
         state = GameState.Playing;
-        EventsManager.Instance.callGameResumedEvent();
+        PauseMenu.SetActive(false);
     }
 
+    internal void GameOver()
+    {
+        Time.timeScale = 0;
+        state = GameState.onDeathMenu;
+        PauseMenu.SetActive(true);
+        SetScore();
+    }
+
+    public void ExitGame() { 
+        Application.Quit();
+    }
+
+    public void Restart() {
+        SceneManager.LoadScene(1);
+    }
 }

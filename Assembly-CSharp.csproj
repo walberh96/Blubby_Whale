@@ -58,7 +58,6 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.2.18f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\EventsManager.cs" />
     <Compile Include="Assets\Scripts\Character_controller.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Destroy_Zone.cs" />
@@ -67,6 +66,7 @@
     <Compile Include="Assets\Scripts\Score_UI.cs" />
     <Compile Include="Assets\Scripts\Pipe_Move_Script.cs" />
     <Compile Include="Assets\Scripts\Portal_Counter.cs" />
+    <Compile Include="Assets\Scripts\Pause_Menu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

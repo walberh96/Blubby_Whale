@@ -103,6 +103,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void Restart() {
+        state = GameState.Playing;
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
 }

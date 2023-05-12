@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Score_UI.cs" />
     <Compile Include="Assets\Scripts\Pipe_Move_Script.cs" />
     <Compile Include="Assets\Scripts\Portal_Counter.cs" />
+    <Compile Include="Assets\Scripts\Main_Menu.cs" />
     <Compile Include="Assets\Scripts\Pause_Menu.cs" />
   </ItemGroup>
   <ItemGroup>

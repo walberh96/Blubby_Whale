@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Destroy_Zone.cs" />
     <Compile Include="Assets\Whale3D\Script\BaseMesh.cs" />
+    <Compile Include="Assets\Scripts\Shark_Follow.cs" />
     <Compile Include="Assets\Scripts\DeathZone.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\Score_UI.cs" />

@@ -15,7 +15,7 @@ public class Pause_Menu : MonoBehaviour
         Score.gameObject.SetActive(true);
         Pause.gameObject.SetActive(true);
         Pause.text = "PAUSED";
-        Score.text = GameManager.Instance.score.ToString();
+        Score.text = "Score: " + GameManager.Instance.score.ToString();
         Resume.gameObject.SetActive(true);
         Restart.gameObject.SetActive(true);
         Exit.gameObject.SetActive(true);
@@ -26,7 +26,7 @@ public class Pause_Menu : MonoBehaviour
         Score.gameObject.SetActive(true);
         Pause.gameObject.SetActive(true);
         Pause.text = "YOU DIED!";
-        Score.text = GameManager.Instance.score.ToString();
+        Score.text = "Score: " + GameManager.Instance.score.ToString();
         Resume.gameObject.SetActive(false);
         Restart.gameObject.SetActive(true);
         Exit.gameObject.SetActive(true);
@@ -37,7 +37,7 @@ public class Pause_Menu : MonoBehaviour
         Score.gameObject.SetActive(true);
         Pause.gameObject.SetActive(true);
         Pause.text = "YOU DIED!";
-        Score.text = GameManager.Instance.score.ToString();
+        Score.text = "Score: "+GameManager.Instance.score.ToString();
         Resume.gameObject.SetActive(false);
         Restart.gameObject.SetActive(true);
         Exit.gameObject.SetActive(true);

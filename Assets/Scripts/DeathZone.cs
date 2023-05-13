@@ -8,6 +8,7 @@ public class DeathZone : MonoBehaviour
     {
         //YOU DIED
         if (other.gameObject.tag == "Player") {
+            other.gameObject.GetComponent<Animator>().Play("dead");
             GameManager.Instance.GameOver();
 
         }

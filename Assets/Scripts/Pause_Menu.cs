@@ -30,6 +30,7 @@ public class Pause_Menu : MonoBehaviour
         Resume.gameObject.SetActive(false);
         Restart.gameObject.SetActive(true);
         Exit.gameObject.SetActive(true);
+        gameObject.GetComponent<AudioSource>().Play();
     }
     public void ShowHighScoreMenu() {
         Debug.Log("HIGH SCORE");
@@ -41,6 +42,7 @@ public class Pause_Menu : MonoBehaviour
         Resume.gameObject.SetActive(false);
         Restart.gameObject.SetActive(true);
         Exit.gameObject.SetActive(true);
+        gameObject.GetComponent<AudioSource>().Play();
 
     }
 }

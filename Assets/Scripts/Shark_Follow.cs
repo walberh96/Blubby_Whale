@@ -33,6 +33,7 @@ public class Shark_Follow : MonoBehaviour
     {
         if (other.tag == "Player") {
             GameManager.Instance.GameOver();
+            other.gameObject.GetComponent<Animator>().Play("dead");
         }
     }
 

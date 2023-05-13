@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -7,11 +6,12 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private GameObject[] prefabs; // Array of prefabs to spawn
     [SerializeField]
-    public float spawnDelay = 3f; // Time delay between spawns
+    public float spawnDelay; // Time delay between spawns
 
     // Start is called before the first frame update
     void Start()
     {
+        spawnDelay = 3f;
         // Start the spawning coroutine
         StartCoroutine(SpawnObjects());
     }
@@ -40,7 +40,8 @@ public class Spawner : MonoBehaviour
             // Check if a minute has passed, and adjust the spawn delay if necessary
             if (timer >= 60f)
             {
-                spawnDelay *= 0.65f; // Reduce the spawn delay by 35%
+                spawnDelay = Mathf.Min(spawnDelay * 0.75f, 1.2f );
+                //spawnDelay *= 0.5f; // Reduce the spawn delay by 25%
                 timer = 0f;
             }
 

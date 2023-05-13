@@ -80,14 +80,16 @@ public class GameManager : MonoBehaviour
         state = GameState.Paused;
         PauseMenu.SetActive(true);
         PauseMenu.gameObject.GetComponent<Pause_Menu>().ShowPauseMenu();
-        
-        
+        Camera.main.GetComponent<AudioSource>().Pause();
+
+
     }
     public void ResumeGame()
     {
         Time.timeScale = 1;
         state = GameState.Playing;
         PauseMenu.SetActive(false);
+        Camera.main.GetComponent<AudioSource>().Play();
     }
 
     internal void GameOver()
@@ -96,6 +98,8 @@ public class GameManager : MonoBehaviour
         state = GameState.onDeathMenu;
         PauseMenu.SetActive(true);
         SetScore();
+        Camera.main.GetComponent<AudioSource>().Stop();
+        //Play another sound of death
     }
 
     public void ExitGame() { 

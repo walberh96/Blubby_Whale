@@ -11,6 +11,7 @@ public class Portal_Counter : MonoBehaviour
         //Send the score up event
         if (other.tag.Equals("Player")) {
             GameManager.Instance.increaseScore();
+            gameObject.GetComponent<AudioSource>().Play();
         }
     }
 }
